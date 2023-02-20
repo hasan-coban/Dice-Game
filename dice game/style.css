@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Press+Start+2P&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Press Start 2P', cursive;
+  height: 100vh;
+  color: #333;
+  background: url(dicebg2.jpg) center/cover no-repeat;
+  display: flex; /* to center main with the below code*/
+  align-items: center;
+  justify-content: center;
+}
+main {
+  position: relative;
+  height: 60rem;
+  width: 100rem;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(200px);
+  display: flex;
+  border-radius: 10px;
+}
+.player {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  transition: all 0.75s;
+}
+
+/****Elements*****/
+.name {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+  letter-spacing: 1px;
+}
+.score {
+  position: absolute;
+  top: 20.3rem;
+  font-size: 5rem;
+  font: weight 300;
+  margin-bottom: 2rem;
+  color: #c7365f;
+}
+.player--active {
+  background-color: palegreen;
+}
+.player--active .name {
+  font-weight: 700;
+}
+.player--active .score {
+  font-weight: 600;
+}
+.player--active .current {
+  opacity: 1;
+}
+.current {
+  position: absolute;
+  top: 38rem;
+  background: url(dicebg7.jpg) center/cover no-repeat;
+  width: 20rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  font-size: 2rem;
+  color: #ddd;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.75s;
+}
+.current-label {
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.current-score {
+  font-weight: 4rem;
+}
+
+/****BUTTONS*****/
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translate(
+    -50%
+  ); /*by doing that, no need to set 3 lines for each one separately*/
+  background: url(dicebg6.jpg) center/cover no-repeat;
+  color: #ddd;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-family: inherit;
+  border-radius: 1rem;
+  padding: 0.7rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.btn--new {
+  top: 3.5rem;
+}
+.btn--rules {
+  top: 8.5rem;
+}
+.btn--roll {
+  top: 38rem;
+}
+.btn--hold {
+  top: 44rem;
+}
+/****OTHERS****/
+.dice {
+  position: absolute;
+  top: 18rem;
+  left: 50%;
+  height: 10rem;
+  transform: translate(-50%);
+}
+
+.player--winner {
+  background-color: #20262e;
+}
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
+}
+
+.hidden {
+  display: none;
+}
+/*** Modal***/
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url(dicebg6.jpg) center/cover no-repeat;
+  color: #ddd;
+  border-radius: 2rem;
+  padding: 3rem;
+  z-index: 2; /*used to send it forward*/
+}
+.close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  align-self: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: crimson;
+  background-color: wheat;
+}
+h1 {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.rules {
+  font-size: 2.5rem;
+  font-family: 'Black Ops One', cursive;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: invert(70%);
+  z-index: 1;
+}
+
+/***Responsiveness ****/
+@media (min-width: 360px) and (max-width: 800px) {
+  .name {
+    font-size: 1rem;
+    margin-top: 4.7rem;
+  }
+  .player--0 .name {
+    margin-right: 1.4rem;
+  }
+  .player--1 .name {
+    margin-left: 2rem;
+  }
+  .rules {
+    font-size: 1.3rem;
+  }
+
+  .score {
+    font-size: 4rem;
+  }
+
+  .btn {
+    font-size: 0.6rem;
+    padding: 0.5rem;
+  }
+  .btn--hold {
+    top: 42rem;
+  }
+  .current {
+    width: 10rem;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .dice {
+    height: 7rem;
+  }
+}
